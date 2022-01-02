@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="fr.reminder.controller.utils.BindingConverter" />
+
+        <variable
+            name="duree"
+            type="fr.reminder.model.Duree" />
+    </data>
+
+    <GridLayout
+        android:columnCount="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtAnnee"
+            android:text="@string/annee"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtMois"
+            android:text="@string/mois"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtJour"
+            android:text="@string/jour"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editAnnee"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={BindingConverter.intToString(duree.annee)}"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editMois"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={BindingConverter.intToString(duree.mois)}"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editJour"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={BindingConverter.intToString(duree.jour)}"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtHeure"
+            android:text="@string/heure"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtMinute"
+            android:text="@string/minute"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtSeconde"
+            android:text="@string/seconde"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editHeure"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={BindingConverter.intToString(duree.heure)}"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editMinute"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={BindingConverter.intToString(duree.minute)}"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editSeconde"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={BindingConverter.intToString(duree.seconde)}"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal" />
+    </GridLayout>
+</layout>

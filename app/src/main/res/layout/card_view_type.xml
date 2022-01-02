@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="fr.reminder.controller.utils.BindingConverter" />
+
+        <variable
+            name="typeEvenement"
+            type="fr.reminder.model.TypeEvenement" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/nom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@{typeEvenement.nom}"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/categorie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@{typeEvenement.categorie.nom}"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                card_view:layout_constraintTop_toBottomOf="@id/nom"
+                card_view:layout_constraintStart_toStartOf="@id/nom"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/isCreationAutomatique"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@string/creation_auto"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                card_view:layout_constraintTop_toBottomOf="@id/categorie"
+                card_view:layout_constraintStart_toStartOf="@id/categorie"
+                android:visibility="@{typeEvenement.creationAutomatique ? View.VISIBLE : View.GONE}"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/isProgrammable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@string/programmable"
+                android:textColor="@color/warn"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                card_view:layout_constraintTop_toBottomOf="@id/isCreationAutomatique"
+                card_view:layout_constraintStart_toStartOf="@id/isCreationAutomatique"
+                android:visibility="@{typeEvenement.programmable ? View.VISIBLE : View.GONE}"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rappel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@{typeEvenement.rappel.empty ? @string/no_rappel : typeEvenement.rappel.toString}"
+                android:gravity="end"
+                android:textSize="12sp"
+                android:textAlignment="textEnd"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/duree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@{typeEvenement.duree.empty ? @string/no_duree : typeEvenement.duree.toString}"
+                android:gravity="end"
+                android:textSize="12sp"
+                android:textAlignment="textEnd"
+                card_view:layout_constraintTop_toBottomOf="@id/rappel"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/freq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@{typeEvenement.frequence.empty ? @string/no_frequence : typeEvenement.frequence.toString}"
+                android:gravity="end"
+                android:textSize="12sp"
+                android:textAlignment="textEnd"
+                android:visibility="@{typeEvenement.creationAutomatique ? View.VISIBLE : View.GONE}"
+                card_view:layout_constraintTop_toBottomOf="@id/duree"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/delai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@{typeEvenement.delai.empty ? @string/no_delai : typeEvenement.delai.toString}"
+                android:textColor="@color/warn"
+                android:gravity="end"
+                android:textSize="12sp"
+                android:textAlignment="textEnd"
+                android:visibility="@{typeEvenement.delai.empty ? View.GONE : View.VISIBLE}"
+                card_view:layout_constraintTop_toBottomOf="@id/freq"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,16 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Reminder" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/main_medium</item>
+        <item name="colorPrimaryDark">@color/main_dark</item>
+        <item name="colorAccent">@color/main_light</item>
+        <item name="colorSecondary">@color/second_light</item>
+        <item name="colorSecondaryVariant">@color/second_light</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Reminder.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Reminder.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

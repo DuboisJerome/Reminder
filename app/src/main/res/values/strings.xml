@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Reminder</string>
+
+    <string name="title_a_venir">À venir</string>
+    <string name="title_non_programmees">Non programmées</string>
+    <string name="title_histo">Historique</string>
+    <string name="action_lst_categorie">Liste Catégorie</string>
+    <string name="action_lst_type_evenement">Liste type d\'activités</string>
+    <string name="title_organisation">Organisation</string>
+    <string name="btn_add_categorie">Ajouter Catégorie</string>
+    <string name="btn_add_type">Ajouter type</string>
+    <string name="place_holder_nom_categorie">Nom de la catégorie</string>
+    <string name="btn_add_evenement">Ajouter évenement</string>
+    <string name="btn_valider">Valider</string>
+    <string name="btn_annuler">Annuler</string>
+    <string name="is_creation_automatique">Création automatique ?</string>
+    <string name="import_db">Importer Base de données</string>
+    <string name="export_db">Exporter Base de données</string>
+    <string name="annee">Année</string>
+    <string name="mois">Mois</string>
+    <string name="jour">Jour</string>
+    <string name="heure">Heure</string>
+    <string name="minute">Minute</string>
+    <string name="seconde">Seconde</string>
+    <string name="palce_holder_nom_type_evenement">Ex : Dentiste, Laver draps, etc</string>
+    <string name="nom">Nom</string>
+    <string name="categorie">Catégorie</string>
+    <string name="delai">Délai</string>
+    <string name="freq">Fréquence</string>
+    <string name="rappels">Rappel</string>
+    <string name="type">Type</string>
+    <string name="date">Date</string>
+    <string name="commentaire">Commentaire</string>
+    <string name="lieu">Lieu</string>
+    <string name="channel_name">Notif Reminder</string>
+    <string name="channel_description">Description notif Reminder</string>
+    <string name="repetable">Répétable</string>
+    <string name="creation_auto">Création automatique</string>
+    <string name="duree">Duree</string>
+    <string name="is_programme">Réservé ?</string>
+    <string name="non_programme">Non réservé</string>
+    <string name="is_programmable">Réservation ?</string>
+    <string name="programmable">Réservation requise</string>
+
+    <string name="no_delai">Sans délai</string>
+    <string name="no_frequence">Sans répétition</string>
+    <string name="no_duree">Sans durée</string>
+    <string name="no_rappel">Sans rappel</string>
+    <string name="titre_notif_rappel">Rappel Evenement</string>
+    <string name="titre_notif_debut_evenement">Début Evenement</string>
+    <string name="contenu_notif_debut_evenement">%1$s - %2$s : Début de l\'événement. %3$s</string>
+    <string name="contenu_notif_rappel">%1$s - %2$s : Rappel de l\'événement. %3$s</string>
+</resources>

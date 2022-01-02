@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="fr.reminder.controller.utils.BindingConverter" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="evenement"
+            type="fr.reminder.model.Evenement" />
+    </data>
+
+    <GridLayout
+        android:columnCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/type"
+            android:gravity="center_vertical"
+            android:textSize="13sp"
+            android:layout_columnWeight="0.3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_columnWeight="0.7"
+            android:layout_gravity="fill_horizontal"
+            selectedSpinner="@={evenement.type.id}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/date"
+            android:gravity="center_vertical"
+            android:textSize="13sp"
+            android:layout_columnWeight="0.3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/date_evenement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_columnWeight="0.7"
+            android:layout_gravity="fill_horizontal"
+            android:text="@={BindingConverter.dateToString(evenement.date)}"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_lieu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/lieu"
+            android:gravity="center_vertical"
+            android:textSize="13sp"
+            android:layout_columnWeight="0.3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/lieu_evenement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_columnWeight="0.7"
+            android:layout_gravity="fill_horizontal"
+            android:text="@={evenement.lieu}"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_commentaire"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/commentaire"
+            android:gravity="center_vertical"
+            android:textSize="13sp"
+            android:layout_columnWeight="0.3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/commentaire_evenement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_columnWeight="0.7"
+            android:layout_gravity="fill_horizontal"
+            android:text="@={evenement.commentaire}"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_is_programme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/is_programme"
+            android:gravity="center_vertical"
+            android:textSize="13sp"
+            android:layout_columnWeight="0.3"
+            android:layout_gravity="fill_horizontal"
+            android:visibility="@{evenement.type.programmable ? View.VISIBLE : View.GONE}"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/is_programme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:checked="@={evenement.programme}"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:visibility="@{evenement.type.programmable ? View.VISIBLE : View.GONE}"
+            android:layout_gravity="fill_horizontal" />
+    </GridLayout>
+</layout>

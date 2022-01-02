@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="fr.reminder.controller.utils.BindingConverter" />
+
+        <variable
+            name="evenement"
+            type="fr.reminder.model.Evenement" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/warn_evenement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:minWidth="100dp"
+                android:text="@string/non_programme"
+                android:textColor="@color/warn"
+                android:visibility="@{evenement.type.programmable &amp;&amp; !evenement.programme ? View.VISIBLE : View.GONE}"
+                android:textSize="15sp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/type_evenement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:minWidth="100dp"
+                android:text="@{evenement.type.nom}"
+                android:textSize="16sp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@id/warn_evenement" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/categorie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:minWidth="100dp"
+                android:text="@{evenement.type.categorie.nom}"
+                android:textSize="12sp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toStartOf="@id/type_evenement"
+                card_view:layout_constraintTop_toBottomOf="@id/type_evenement"
+                card_view:layout_constraintVertical_bias="0.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date_evenement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:minWidth="100dp"
+                android:text="@{BindingConverter.dateToString(evenement.date)}"
+                android:textDirection="rtl"
+                android:textSize="15sp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/type_evenement" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lieu_evenement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:minWidth="100dp"
+                android:text="@{evenement.lieu}"
+                android:textSize="12sp"
+                android:visibility="gone"
+                card_view:layout_constraintStart_toStartOf="@id/categorie"
+                card_view:layout_constraintTop_toBottomOf="@id/categorie" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/commentaire_evenement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:minWidth="100dp"
+                android:text="@{evenement.commentaire}"
+                android:textSize="12sp"
+                android:visibility="gone"
+                card_view:layout_constraintStart_toStartOf="@id/lieu_evenement"
+                card_view:layout_constraintTop_toBottomOf="@id/lieu_evenement" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

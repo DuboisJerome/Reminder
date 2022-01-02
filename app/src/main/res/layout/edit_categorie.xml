@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="categorie"
+            type="fr.reminder.model.CategorieEvenement" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/nom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/place_holder_nom_categorie"
+            android:autofillHints="name"
+            android:inputType="text"
+            android:text="@={categorie.nom}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_prog_a_venir">
+
+    <fragment
+        android:id="@+id/navigation_prog_a_venir"
+        android:name="fr.reminder.ui.evenement.LstEvenementAVenirFragment"
+        android:label="@string/title_a_venir"
+        tools:layout="@layout/fragment_lst_evenement" />
+
+    <fragment
+        android:id="@+id/navigation_non_programmees"
+        android:name="fr.reminder.ui.type.LstTypeNonProgrammeFragment"
+        android:label="@string/title_non_programmees"
+        tools:layout="@layout/fragment_lst_type">
+
+        <action
+            android:id="@+id/action_lst_type_to_lst_evenement"
+            app:destination="@id/navigation_lst_evenement_from_type"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="idType"
+                app:argType="long"
+                android:defaultValue="-1L" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_historique"
+        android:name="fr.reminder.ui.evenement.LstEvenementHistoFragment"
+        android:label="@string/title_histo"
+        tools:layout="@layout/fragment_lst_evenement" />
+
+    <fragment
+        android:id="@+id/navigation_lst_categorie"
+        android:name="fr.reminder.ui.categorie.LstCategorieFragment"
+        android:label="@string/title_organisation"
+        tools:layout="@layout/fragment_lst_categorie">
+        <action
+            android:id="@+id/action_lst_categorie_to_lst_type"
+            app:destination="@id/navigation_lst_type_from_categorie"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="idCategorie"
+                app:argType="long"
+                android:defaultValue="-1L" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_lst_type_from_categorie"
+        android:name="fr.reminder.ui.type.LstTypeFragmentFromCategorie"
+        android:label="@string/title_organisation"
+        tools:layout="@layout/fragment_lst_type">
+
+        <argument
+            android:name="idCategorie"
+            app:argType="long"
+            android:defaultValue="-1L" />
+
+        <action
+            android:id="@id/action_lst_type_to_lst_evenement"
+            app:destination="@id/navigation_lst_evenement_from_type"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="idType"
+                app:argType="long"
+                android:defaultValue="-1L" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_lst_evenement_from_type"
+        android:name="fr.reminder.ui.evenement.LstEvenementFragment"
+        android:label="@string/title_organisation"
+        tools:layout="@layout/fragment_lst_type">
+
+        <argument
+            android:name="idType"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+</navigation>

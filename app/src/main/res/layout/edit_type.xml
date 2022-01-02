@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="fr.reminder.controller.utils.BindingConverter" />
+
+        <variable
+            name="typeEvenement"
+            type="fr.reminder.model.TypeEvenement" />
+    </data>
+
+    <GridLayout
+        android:columnCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_nom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/nom"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_columnWeight="0.3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/nom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@={typeEvenement.nom}"
+            android:hint="@string/palce_holder_nom_type_evenement"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_columnWeight="0.7"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_categorie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/categorie"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_columnWeight="0.3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/categorie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp"
+            selectedSpinner="@={typeEvenement.categorie.id}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_is_creation_auto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/is_creation_automatique"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/is_creation_auto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:checked="@={typeEvenement.creationAutomatique}"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_is_programmable"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/is_programmable"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/is_programmable"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:checked="@={typeEvenement.programmable}"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_freq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/freq"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/freq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@{typeEvenement.frequence.toString()}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_delai"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/delai"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/delai"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@{typeEvenement.delai.toString()}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_rappels"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/rappels"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rappel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@{typeEvenement.rappel.toString()}"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titre_duree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@string/duree"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/duree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"
+            android:text="@{typeEvenement.duree.toString()}"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp" />
+
+
+    </GridLayout>
+</layout>
